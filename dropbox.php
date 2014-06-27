@@ -18,7 +18,7 @@
   </head>
 
   <body><br><br>
-    <?php include 'process-form.php'; ?>
+    <?php include process-form.php; ?>
 <div class="container-fluid">
 <div class="row-fluid">
   <div class="span1">
@@ -28,7 +28,7 @@
     
     <div class="navbar navbar-inverse">
     <div class="navbar-inner">
-    <a class="brand" href="#">IITJ Counselling Sevice</a>
+    <a class="brand" href="http://cs.iitj.ac.in/">IITJ Counselling Sevice</a>
     <ul class="nav">
     <li><a href="http://cs.iitj.ac.in/">Home</a></li>
  
@@ -60,7 +60,7 @@
 
 
        <li><a href="http://cs.iitj.ac.in/gallery.html">Gallery</a></li>
-    <li class="active"><a href="dropbox.html">Contact Us</a></li>
+    <li class="active"><a href="dropbox.php">Contact Us</a></li>
     </ul>
     </div>
     </div>
@@ -76,7 +76,7 @@
             <?php echo !empty($error_list) ? $error_list : ''; ?>
             </div>
 
-            <form id="contact-form" action="" method="POST">
+            <form id="contact-form" action="index.html" method="POST" >
 
                 <fieldset>
 
@@ -99,8 +99,7 @@
 
                     <div class="field">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" cols="15" rows="5" required
-                                ></textarea>
+                        <textarea id="message" name="message" cols="15" rows="5"> </textarea>
                     </div>
 
                     <div class="field submit">

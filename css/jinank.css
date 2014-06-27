@@ -1,0 +1,65 @@
+@charset "utf-8";
+/* CSS Document */
+#table{
+	position:absolute;
+	top:30%;
+	right:65%;
+	}
+#logo{
+	position:absolute
+	top:15%;
+	left:8%;
+width: 200px;
+max-width: 90%;
+	}
+
+#jin1{
+	position:absolute;
+	top:45%
+	
+	}
+#jin{
+	position:absolute;
+	top:15%;
+	left:23%;
+	}
+
+#jin2{
+	position:absolute;
+	top:5%;
+	
+	}
+
+#jin3{
+	position:absolute;
+	top:5%;
+	left:40%;
+	}	
+img
+{
+	max-width: 100%;
+	height: auto;
+}
+.erb-image-wrapper{
+    max-width:10%;
+    height:auto;
+    position: absolute;
+    display:block;
+    margin:0 auto;
+	top:12%;
+	left:1%;
+}
+.erb-image-wrapper img{
+    width:100% !important;
+    height:100% !important;
+    display:block;
+}
+#poem{
+margin-left:0%;
+}
+#life{
+margin-left:10%;
+}
+#jina{
+	margin-right:20%;
+	}

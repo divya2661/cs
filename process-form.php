@@ -1,17 +1,17 @@
 <?php
 /**
-* Created by 23rd and Walnut.
-* www.23andwalnut.com
-* User: Saleem El-Amin
-* Date: Aug 29, 2010
-* Time: 1:32:54 PM
-*/
+ * Created by 23rd and Walnut.
+ * www.23andwalnut.com
+ * User: Saleem El-Amin
+ * Date: Aug 29, 2010
+ * Time: 1:32:54 PM
+ */
 
 
 /** CONFIGURATION OPTIONS
-* $email_address = The email address that all form submissions will be sent to
-* $company_address = The destination address that will be used in the contact form */
-
+ * $email_address = The email address that all form submissions will be sent to
+ * $company_address = The destination address that will be used in the contact form */
+//error_reporting(0);
 $email_address = '';
 $company_address = '';
 require 'connect.inc.php';
@@ -22,17 +22,17 @@ require 'connect.inc.php';
 echo "<script>var companyAddress = '".$company_address."';</script>";
 
 $field_rules = array(
-   'name' => 'required',
-   'email' => 'required|valid_email',
-   'phone' => '',
-   'contact_reason' => 'required',
-   'message' => 'required'
+    'name' => 'required',
+    'email' => 'required|valid_email',
+    'phone' => '',
+    'contact_reason' => 'required',
+    'message' => 'required'
 );
 
 
 $error_messages = array(
-   'required' => 'This field is required',
-   'valid_email' => 'Please enter a valid email address'
+    'required' => 'This field is required',
+    'valid_email' => 'Please enter a valid email address'
 );
 
 
@@ -49,14 +49,14 @@ $message = $fields['message'];
 
 
 if(!empty($name)&&!empty($phone)&&!empty($email)&&!empty($message)){  
-             $query = "INSERT INTO counselling(name,email,contact,query) VALUES('$name','$email','$phone','$message')";
-             $query_run = mysql_query($query);
- if($query_run = mysql_query($query)){
-   header('location : register_success.php');
- }else{
- 
- }
-         }
+              $query = "INSERT INTO counselling(name,email,contact,query) VALUES('$name','$email','$phone','$message')";
+              $query_run = mysql_query($query);
+  if($query_run = mysql_query($query)){
+    header('location : register_success.php');
+  }else{
+  
+  }
+          }
 
 else{
 echo "all fields are manadatory";
@@ -64,71 +64,73 @@ echo "all fields are manadatory";
 }
 if (!empty($fields))
 {
-   //Validate each of the fields
-   foreach ($field_rules as $field => $rules)
-   {
-       $rules = explode('|', $rules);
+    //Validate each of the fields
+    foreach ($field_rules as $field => $rules)
+    {
+        $rules = explode('|', $rules);
 
-       foreach ($rules as $rule)
-       {
-           $result = null;
+        foreach ($rules as $rule)
+        {
+            $result = null;
 
-           if (isset($fields[$field]))
-           {
-               if (!empty($rule))
-                   $result = $rule($fields[$field]);
+            if (isset($fields[$field]))
+            {
+                if (!empty($rule))
+                    $result = $rule($fields[$field]);
 
-               if ($result === false)
-               {
-                   $field_name = ucwords(implode(' ', explode('_', $field)));
+                if ($result === false)
+                {
+                    $field_name = ucwords(implode(' ', explode('_', $field)));
 
-                   $error_list .= "<div class='error'>$field_name: " . $error_messages[$rule] . "</div>";
-               }
-           }
-       }
-   }
+                    $error_list .= "<div class='error'>$field_name: " . $error_messages[$rule] . "</div>";
+                }
+            }
+        }
+    }
 
-   if (empty($error_list))
-   {
-       $subject = '[Contact Form] New message from ' . $fields['name'] . '.';
+    if (empty($error_list))
+    {
+	
+        $subject = '[Contact Form] New message from ' . $fields['name'] . '.';
 
-       $content = $fields['name'] . " sent you a message from your contact form:\r\n\n";
-       $content .= "-------\n" . $fields['message'] . "\r\n\n";
-       $content .= " \n\nEmail: " . $fields['email']
-               . " \n\nPhone: " . $fields['phone'] . " \n\n";
+        $content = $fields['name'] . " sent you a message from your contact form:\r\n\n";
+        $content .= "-------\n" . $fields['message'] . "\r\n\n";
+        $content .= " \n\nEmail: " . $fields['email']
+                . " \n\nPhone: " . $fields['phone'] . " \n\n";
 
-       if (mail($email_address, $subject, $content, "From: " . $fields['email'] . "\r\nReply-To: " . $fields['email'] . "\r\nReturn-Path: " . $fields['email'] . "\r\n"))
-       {
+        if (mail($email_address, $subject, $content, "From: " . $fields['email'] . "\r\nReply-To: " . $fields['email'] . "\r\nReturn-Path: " . $fields['email'] . "\r\n"))
+        {
 
-           echo "<h2 class='success'>Message Sent</h2>";
-           echo "<br/><p class='success'>Thank you <strong>" . $fields['name'] . "</strong>, your message has been submitted and someone will contact you shortly.</p>";
+            echo "<h2 class='success'>Message Sent</h2>";
+            echo "<br/><p class='success'>Thank you <strong>" . $fields['name'] . "</strong>, your message has been submitted and someone will contact you shortly.</p>";
+			
+        }
+        else
+        {
 
-       }
-       else
-       {
-
-           echo 'ERROR!';
-       }
-   }
+            echo 'Thank You';
+        }
+    }
 }
 
 function required($str, $val = false)
 {
 
-   if (!is_array($str))
-   {
-       $str = trim($str);
-       return ($str == '') ? false : true;
-   }
-   else
-   {
-       return (!empty($str));
-   }
+    if (!is_array($str))
+    {
+        $str = trim($str);
+        return ($str == '') ? false : true;
+    }
+    else
+    {
+        return (!empty($str));
+    }
 }
 
 function valid_email($str)
 {
-   return (!preg_match("/^(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){255,})(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){65,}@)(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22))(?:\\.(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22)))*@(?:(?:(?!.*[^.]{64,})(?:(?:(?:xn--)?[a-z0-9]+(?:-[a-z0-9]+)*\\.){1,126}){1,}(?:(?:[a-z][a-z0-9]*)|(?:(?:xn--)[a-z0-9]+))(?:-[a-z0-9]+)*)|(?:\\[(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){7})|(?:(?!(?:.*[a-f0-9][:\\]]){7,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?)))|(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){5}:)|(?:(?!(?:.*[a-f0-9]:){5,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3}:)?)))?(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))(?:\\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))){3}))\\]))$/iD", $str)) ? false : true;
+    return (!preg_match("/^(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){255,})(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){65,}@)(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22))(?:\\.(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22)))*@(?:(?:(?!.*[^.]{64,})(?:(?:(?:xn--)?[a-z0-9]+(?:-[a-z0-9]+)*\\.){1,126}){1,}(?:(?:[a-z][a-z0-9]*)|(?:(?:xn--)[a-z0-9]+))(?:-[a-z0-9]+)*)|(?:\\[(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){7})|(?:(?!(?:.*[a-f0-9][:\\]]){7,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?)))|(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){5}:)|(?:(?!(?:.*[a-f0-9]:){5,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3}:)?)))?(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))(?:\\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))){3}))\\]))$/iD", $str)) ? false : true;
 }
 
 ?>
+
