@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>IITJ-Counselling Service</title>
+	<meta name="viewport" content="height=device-height, initial-scale=1.0">
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  function add(){
+  var name=document.getElementById("name").value;
+  var email=document.getElementById("email").value;
+  var number=document.getElementById("number").value;
+  var message = document.getElementById("message").value;
+  var done = false;
+  if(!name){
+    $("#errors").append("You must supply your username").addClass("alert alert-danger");
+  }else if(!number){
+    $("#errors").append("You must supply your contact number").addClass("alert alert-danger");
+  }else if(!email){
+    $("#errors").append("You must supply your email address").addClass("alert alert-danger");
+  }else if(!message){
+    $("#errors").append("You must enter your query").addClass("alert alert-danger");
+  }else{
+    done=true;
+  }
+
+  console.log(done);
+    if(done){
+      var data = $("form").serialize();
+      //console.log(data);
+      $.ajax({
+        type:"POST",
+        url:"add.php",
+        data:data,
+        dataType:"html",
+      }).done(function() {
+        alert( "Thank You for contacting us. IIT Jodhpur Counselling Service Team will reply to your query soon." );
+        document.getElementById("name").value="";
+        document.getElementById("email").value="";
+        document.getElementById("message").value="";
+        document.getElementById("number").value="";
+      });
+    } 
+}
+  </script>
+  </head>
+
+  <body>
+
+	<br><br>
+	<div class="container-fluid">
+  		<div class="row-fluid">
+  			<div class="span1">
+    			<a href="http://iitj.ac.in/"><img src="images/iitjlogo44.png" class="img-rounded"></a>
+  			</div>
+  			<div class="span10">
+    			<div class="navbar navbar-inverse">
+					<div class="navbar-inner">
+    					<a class="brand" href="index.html">IITJ Counselling Service</a>
+    						<ul class="nav">
+    							<li><a href="index.html">Home</a></li>
+    							<li class="dropdown">
+      							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Life at IITJ<b class="caret"></b></a>
+        							<ul class="dropdown-menu">
+          								<li><a href="schod.html">SCHoD</a></li>
+          								<li><a href="fests.html">Fests</a></li>
+          								<li><a href="campus.html">Testimonials</a></li>
+        							</ul>
+    							</li>
+   								<li><a href="team.html">Counselling Team</a></li>
+    							<li class="dropdown">
+      							<a class="dropdown-toggle" data-toggle="dropdown" href="#">FAQs<b class="caret"></b></a>
+        							<ul class="dropdown-menu">
+        							  <li><a href="faq.html">General FAQs</a></li>
+        							  <li><a href="faq1.html">Academics</a></li>
+        							  <li><a href="faq2.html">Counselling Service</a></li>
+        							  <li><a href="faq3.html">Residential Campus</a></li>
+        							</ul>
+    							</li>
+       							<li><a href="gallery.html">Gallery</a></li>
+    							<li class="active"><a href="contact.html">Contact Us</a></li>
+    						</ul>
+  					</div> 
+  				</div>  
+  			</div>
+  		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span1"></div>
+      <div class="span8">
+      <h2>Contact Us</h2>
+      <h5>Please fill in this form if you have any query regarding IIT Jodhpur. IIT Jodhpur Counselling Service team will be happy to help you anytime.</h5>
+        <form action="javascript:add()"class="form-horizontal" id="formtest">
+            <div class="control-group">
+              <label class="control-label">Name</label>
+              <div class="controls">
+                <input class="span12" name="name" type="text" id="name" placeholder="Please enter your name" required>
+                  <p id="errors"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Contact Number</label>
+              <div class="controls">
+              <input class="span12" name="phone" title="Your contact number" type="text" id="number" placeholder="Please enter your contact number" required>
+                <p id="errors"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Email</label>
+              <div class="controls">
+              <input class="span12" name ="mail" type="email" id="email" placeholder="Please enter your email address" required>
+                <p id="errors"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Message</label>
+              <div class="controls">
+              <textarea class="span12" name="message" id="message" placeholder="Please enter your query" rows="6" required></textarea>
+                <p id="errors"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+              <input id="submit" type ="submit" class="btn btn-primary" value="Submit">
+              </div>
+            </div>
+        </form>
+        <div id="results"></div>
+      </div>
+		</div>
+  </div>
+	
+  </body>
+</html>
