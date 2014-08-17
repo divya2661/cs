@@ -1,0 +1,14 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.container {
+    
+    height: 600px;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+	top : 35%;
+	left :25%;
+}

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+           <meta charset="utf-8">
+    <title>IITJ-Counselling Service</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+     <link href="css/jinank.css" rel="stylesheet">
+
+        <link href="css/main.css" rel="stylesheet" type="text/css" />
+
+
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/buttons.css" />
+        <script type="text/javascript" src="js/modernizr.custom.53451.js"></script>
+
+
+        <script type="text/javascript" src="js/jquery-1.5.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.history.js"></script>
+        <script type="text/javascript" src="js/jquery.opacityrollover.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+      <style>
+
+    /* GLOBAL STYLES
+    -------------------------------------------------- */
+    /* Padding below the footer and lighter body text */
+
+
+
+/*Gallery Styling css....*/
+
+
+
+.dg-container{
+  width: 100%;
+  height: 450px;
+  position: relative;
+}
+.dg-wrapper{
+  width: 481px;
+  height: 316px;
+  margin: 0 auto;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -o-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px;
+}
+.dg-wrapper a{
+  width: 482px;
+  height: 316px;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: transparent url(../images/browser.png) no-repeat top left;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+}
+.dg-wrapper a.dg-transition{
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.dg-wrapper a img{
+  display: block;
+  padding: 41px 0px 0px 1px;
+}
+.dg-wrapper a div{
+  font-style: italic;
+  text-align: center;
+  line-height: 50px;
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+  color: #333;
+  font-size: 16px;
+  width: 100%;
+  bottom: -55px;
+  display: none;
+  position: absolute;
+}
+.dg-wrapper a.dg-center div{
+  display: block;
+}
+.dg-container nav{
+  width: 58px;
+  position: absolute;
+  z-index: 1000;
+  bottom: 40px;
+  left: 50%;
+  margin-left: -29px;
+}
+.dg-container nav span{
+  text-indent: -9000px;
+  float: left;
+  cursor:pointer;
+  width: 24px;
+  height: 25px;
+  opacity: 0.8;
+  background: transparent url(../images/arrows.png) no-repeat top left;
+}
+.dg-container nav span:hover{
+  opacity: 1;
+}
+.dg-container nav span.dg-next{
+  background-position: top right;
+  margin-left: 10px;
+}
+
+
+
+/* Gallery css over*/
+
+
+    body {
+      padding-bottom: 40px;
+    
+      
+    }
+
+
+
+    /* CUSTOMIZE THE NAVBAR
+    -------------------------------------------------- */
+
+    /* Special class on .container surrounding .navbar, used for positioning it into place. */
+    .navbar-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      margin-top: 20px;
+      margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+    }
+    .navbar-wrapper .navbar {
+
+    }
+
+    /* Remove border and change up box shadow for more contrast */
+    .navbar .navbar-inner {
+      border: 0;
+      -webkit-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+         -moz-box-shadow: 0 2px 10px rgba(0,0,0,.25);
+              box-shadow: 0 2px 10px rgba(0,0,0,.25);
+    }
+
+    /* Downsize the brand/project name a bit */
+    .navbar .brand {
+      padding: 14px 20px 16px; /* Increase vertical padding to match navbar links */
+      font-size: 16px;
+      font-weight: bold;
+      text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+    }
+
+    /* Navbar links: increase padding for taller navbar */
+    .navbar .nav > li > a {
+      padding: 15px 20px;
+    }
+
+    /* Offset the responsive button for proper vertical alignment */
+    .navbar .btn-navbar {
+      margin-top: 10px;
+    }
+
+
+
+    /* RESPONSIVE CSS
+    -------------------------------------------------- */
+
+    @media (max-width: 979px) {
+
+      .container.navbar-wrapper {
+        margin-bottom: 0;
+        width: auto;
+      }
+      .navbar-inner {
+        border-radius: 0;
+        margin: -20px 0;
+      }
+
+      .carousel .item {
+        height: 500px;
+      }
+      .carousel img {
+        width: auto;
+        height: 500px;
+      }
+
+      .featurette {
+        height: auto;
+        padding: 0;
+      }
+      .featurette-image.pull-left,
+      .featurette-image.pull-right {
+        display: block;
+        float: none;
+        max-width: 40%;
+        margin: 0 auto 20px;
+      }
+    }
+
+
+    @media (max-width: 767px) {
+
+      .navbar-inner {
+        margin: -20px;
+      }
+
+      .carousel {
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+      .carousel .container {
+
+      }
+      .carousel .item {
+        height: 300px;
+      }
+      .carousel img {
+        height: 300px;
+      }
+      .carousel-caption {
+        width: 65%;
+        padding: 0 70px;
+        margin-top: 100px;
+      }
+      .carousel-caption h1 {
+        font-size: 30px;
+      }
+      .carousel-caption .lead,
+      .carousel-caption .btn {
+        font-size: 18px;
+      }
+
+      .marketing .span4 + .span4 {
+        margin-top: 40px;
+      }
+
+      .featurette-heading {
+        font-size: 30px;
+      }
+      .featurette .lead {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+    }
+    </style>
+
+    </head>
+    <body>
+
+      
+ <div class="erb-image-wrapper">
+  <a href="http://iitj.ac.in/" >  <img src="images/iitjlogo44.png" /></a>
+  </div> 
+        <div class="navbar-wrapper">
+      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+      <div class="container">
+
+        <div class="navbar navbar-inverse">
+          <div class="navbar-inner">
+            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="index.html">IITJ Counselling Service</a>
+            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li><a href="index.html">Home</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      Life at IITJ
+      <b class="caret"></b>
+      </a>
+        <ul class="dropdown-menu">
+          <li><a href="facilities.html">Facilities</a></li>
+          <li><a href="schod.html">SCHoD</a></li>
+          <li><a href="fests.html">Fests</a></li>
+          <li><a href="campus.html">Testimonials</a></li>
+        </ul>
+    </li>
+
+                <li><a href="team.html">Counselling Team</a></li>
+
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      FAQs
+      <b class="caret"></b>
+      </a>
+        <ul class="dropdown-menu">
+          <li><a href="faq.html">General FAQs</a></li>
+          <li><a href="faq1.html">Academics</a></li>
+          <li><a href="faq2.html">Counselling Service</a></li>
+          <li><a href="faq3.html">Residential Campus</a></li>
+        </ul>
+    </li>
+
+                <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
+                <li class="active">
+                  <a href="gallery.html">Gallery </a>
+                 
+                </li>
+                  <li><a href="dropbox.php">Contact Us</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div><!-- /.navbar-inner -->
+        </div><!-- /.navbar -->
+
+      </div> <!-- /.container -->
+    </div><!-- /.navbar-wrapper -->
+
+<br><br><br><br><br>
+
+
+      <section id="dg-container" class="dg-container">
+        <div class="dg-wrapper">
+<a href="#"><img src="images/freshers.JPG" alt="image01"></a>
+          <a href="#"><img src="images/pic1.png" alt="image01"></a>
+          <a href="#"><img src="images/pic2.png" alt="image02"></a>
+          <a href="#"><img src="images/pic3.png" alt="image03"></a>
+<a href="#"><img src="images/2.jpg" alt="image01"></a>
+<a href="#"><img src="images/3.jpg" alt="image01"></a>
+          <a href="#"><img src="images/pic4.png" alt="image04"></a>
+ <a href="#"><img src="images/mast.jpg" alt="image10"></a>
+<a href="#"><img src="images/cc1.jpg" alt="image01"></a>
+          <a href="#"><img src="images/pic5.png" alt="image05"></a>
+ <a href="#"><img src="images/mati.jpg" alt="image10"></a>
+          <a href="#"><img src="images/pic6.png" alt="image06"></a>
+<a href="#"><img src="images/7.jpg" alt="image01"></a>
+         <a href="#"><img src="images/pic11.jpg" alt="image10"></a>
+          <a href="#"><img src="images/pic8.png" alt="image08"></a>
+ <a href="#"><img src="images/holi.jpg" alt="image10"></a>
+          <a href="#"><img src="images/pic9.png" alt="image09"></a>
+          <a href="#"><img src="images/pic10.png" alt="image10"></a>
+  <a href="#"><img src="images/agnee.jpg" alt="image10"></a>
+  <a href="#"><img src="images/raabi.jpg" alt="image10"></a>
+  <a href="#"><img src="images/rabbi.jpg" alt="image10"></a>
+        </div>
+        
+      </section>
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.gallery.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        $('#dg-container').gallery({
+          autoplay  : true
+        });
+      });
+    </script>
+ <script src="assets/js/bootstrap-dropdown.js"></script>
+
+
+    </body>
+</html>
